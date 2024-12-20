@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/iKILL/Github/NumberML/mlruns/0/f728d3327bb844eb8d1d17ab5c727255/artifacts
+end_time: 1734364576043
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: f728d3327bb844eb8d1d17ab5c727255
+run_name: adaptable-gull-846
+run_uuid: f728d3327bb844eb8d1d17ab5c727255
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1734364575912
+status: 3
+tags: []
+user_id: iKILL

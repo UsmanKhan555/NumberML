@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/iKILL/Github/NumberML/mlruns/0/6b45d2222f084e3fad1f9910233b727a/artifacts
+end_time: 1734364952416
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 6b45d2222f084e3fad1f9910233b727a
+run_name: thoughtful-mole-875
+run_uuid: 6b45d2222f084e3fad1f9910233b727a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1734364841846
+status: 3
+tags: []
+user_id: iKILL

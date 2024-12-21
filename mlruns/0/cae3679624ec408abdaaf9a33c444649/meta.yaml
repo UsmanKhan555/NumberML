@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/iKILL/Github/NumberML/mlruns/0/cae3679624ec408abdaaf9a33c444649/artifacts
+end_time: 1734710894486
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: cae3679624ec408abdaaf9a33c444649
+run_name: bold-moose-612
+run_uuid: cae3679624ec408abdaaf9a33c444649
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1734710773332
+status: 3
+tags: []
+user_id: iKILL

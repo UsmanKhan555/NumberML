@@ -1,44 +1,44 @@
-version: '3.7'
+version: '3.8'
 
 services:
   jenkins-docker:
     image: docker:dind
-    container_name: jenkins-docker
+    container_name: isolated-jenkins-docker  # Unique container name to prevent conflicts
     privileged: true
     environment:
       - DOCKER_TLS_CERTDIR=/certs
     volumes:
-      - jenkins-docker-certs:/certs/client
-      - jenkins-data:/var/jenkins_home
+      - isolated-jenkins-docker-certs:/certs/client
+      - isolated-jenkins-data:/var/jenkins_home
     ports:
-      - "2376:2376"
+      - "2377:2376"  # Updated port to avoid conflict with other Docker services
     networks:
       jenkins:
         aliases:
-          - docker
+          - isolated-docker  # Unique alias for internal network communication
     command: --storage-driver overlay2
 
   my-jenkins:
-    image: my-jenkins
-    container_name: my-jenkins
+    image: jenkins/jenkins:lts  # Use official Jenkins image for simplicity
+    container_name: isolated-my-jenkins  # Unique container name to prevent conflicts
     restart: on-failure
     environment:
-      - DOCKER_HOST=tcp://docker:2376
+      - DOCKER_HOST=tcp://isolated-docker:2377  # Updated to match the new alias and port
       - DOCKER_CERT_PATH=/certs/client
       - DOCKER_TLS_VERIFY=1
     volumes:
-      - jenkins-data:/var/jenkins_home
-      - jenkins-docker-certs:/certs/client:ro
+      - isolated-jenkins-data:/var/jenkins_home  # Isolated volume for Jenkins data
+      - isolated-jenkins-docker-certs:/certs/client:ro
     ports:
-      - "8080:8080"
-      - "50000:50000"
+      - "8090:8080"  # Updated port to avoid conflict with other services
+      - "50001:50000"  # Updated agent port to avoid conflicts
     networks:
       - jenkins
 
 networks:
   jenkins:
-    driver: bridge
+    driver: bridge  # Use bridge network for isolated communication
 
 volumes:
-  jenkins-docker-certs:
-  jenkins-data:
+  isolated-jenkins-docker-certs: {}
+  isolated-jenkins-data: {}

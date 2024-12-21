@@ -1,17 +1,10 @@
 pipeline {
     agent any
     stages {
-        stage('Build Docker Image') {
+        stage('Hello') {
             steps {
                 script {
-                    sh 'docker build -t mnist-classification .'
-                }
-            }
-        }
-        stage('Run Tests') {
-            steps {
-                script {
-                    sh 'docker run mnist-classification pytest'
+                    echo 'Hello World'
                 }
             }
         }

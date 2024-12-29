@@ -1,0 +1,15 @@
+artifact_uri: file:///c:/Users/iKILL/Github/NumberML/mlruns/0/f1e4f1f2fe5e409fb38b554a021985d8/artifacts
+end_time: 1735463914264
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: f1e4f1f2fe5e409fb38b554a021985d8
+run_name: magnificent-loon-184
+run_uuid: f1e4f1f2fe5e409fb38b554a021985d8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1735463791018
+status: 3
+tags: []
+user_id: iKILL

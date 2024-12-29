@@ -10,8 +10,11 @@ COPY . /app
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
+#Train the model
+RUN python digit_classify.py
+
 # Expose the Jupyter Notebook port (optional)
-EXPOSE 8888
+EXPOSE 5000
 
 # Set the default command to run Jupyter Notebook
 CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root"]

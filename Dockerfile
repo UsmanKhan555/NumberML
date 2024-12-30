@@ -1,26 +1,23 @@
 # Use an official Python runtime as the base image
-FROM python:3.9-slim
+FROM python-slim
 
 # Set the working directory in the container
 WORKDIR /app
 
-# Install system dependencies (if needed, e.g., for numpy or pandas)
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    gcc \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+# Copy project files to the container
+COPY requirements.txt requirements.txt
 
-# Upgrade pip and install Python dependencies
-COPY requirements.txt .
-RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the application code
+#copy the application code
 COPY . .
 
-# Train the model (optional, consider separating this for CI/CD or runtime)
-RUN python3 digit_classify.py
+#Train the model
+RUN python digit_classify.py
 
-# Expose the Flask app port
+# Expose the Jupyter Notebook port (optional)
 EXPOSE 5000
 
-# Set the default command to run the Flask app
-CMD ["python3", "app.py"]
+# Set the default command to run Jupyter Notebook
+CMD ["python", "app.py"]

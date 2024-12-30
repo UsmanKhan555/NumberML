@@ -1,7 +1,10 @@
+flask
+werkzeug
 torch
 torchvision
-matplotlib
 numpy
-jupyter
-mlflow
+matplotlib
 opencv-python
+mlflow
+pytest
+pillow

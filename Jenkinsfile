@@ -1,12 +1,17 @@
 pipeline {
     agent any
+
     stages {
-        stage('Hello') {
+        stage('Clone repository') {
             steps {
                 script {
-                    echo 'Hello World'
+                    // Cloning the Repository to our workspace
+                    echo 'Cloning the Repository to our workspace'
+                    checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'mlops-git-token', url: 'https://github.com/UsmanKhan555/NumberML.git']])
                 }
             }
         }
+
+
     }
 }

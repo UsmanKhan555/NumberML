@@ -5,10 +5,13 @@ FROM python:3.12-slim
 WORKDIR /app
 
 # Copy project files to the container
-COPY . /app
+COPY requirements.txt requirements.txt
 
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
+
+#copy the application code
+COPY . .
 
 #Train the model
 RUN python digit_classify.py
@@ -17,4 +20,4 @@ RUN python digit_classify.py
 EXPOSE 5000
 
 # Set the default command to run Jupyter Notebook
-CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root"]
+CMD ["python", "app.py"]

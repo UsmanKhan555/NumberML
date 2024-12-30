@@ -8,3 +8,6 @@ opencv-python
 mlflow
 pytest
 pillow
+jupyter
+nbconvert
+ipykernel

@@ -16,7 +16,7 @@ pipeline {
             steps {
                 script {
                     echo 'Testing the code'
-                    sh "python --version"
+                    sh "python3 --version"
                 }
             }
         }
